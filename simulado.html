@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulado Interativo com Gabarito Lúdico — Estudos IF</title>
+  <meta name="description" content="Simulado oficial com questões randomizadas baseadas nos editais de ingresso do IFSC, cronômetro de prova, gabarito lúdico, animações em Anime.js e efeitos de confetes.">
+
+  <!-- Google Fonts: Inter, Outfit e Fira Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Anime.js & Canvas-Confetti -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Sistema de Estilos Personalizado do IFSC -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO GLOBAL -->
+  <header class="site-header">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <a href="index.html" class="flex items-center gap-3 text-decoration-none">
+        <div class="logo-badge">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div>
+          <h1 class="text-lg md:text-xl font-extrabold font-heading text-slate-100 flex items-center gap-1.5 leading-none">
+            Estudos <span class="text-emerald-400">IF</span>
+          </h1>
+          <p class="text-xs text-slate-400 font-medium">IFSC • Câmpus Garopaba</p>
+        </div>
+      </a>
+
+      <!-- Navegação Desktop -->
+      <nav class="hidden md:flex items-center gap-1">
+        <a href="index.html" class="nav-link">
+          <i class="fas fa-home"></i> Início
+        </a>
+        <a href="disciplinas.html" class="nav-link">
+          <i class="fas fa-folder-tree"></i> Disciplinas & Pastas
+        </a>
+        <a href="cursos.html" class="nav-link">
+          <i class="fas fa-university"></i> Cursos IFSC
+        </a>
+        <a href="simulado.html" class="nav-link active">
+          <i class="fas fa-stopwatch"></i> Simulado Interativo
+        </a>
+      </nav>
+
+      <!-- Ações do Cabeçalho -->
+      <div class="flex items-center gap-2.5">
+        <button class="btn-action theme-toggle-btn" title="Alternar Modo Escuro / Claro">
+          <i class="fas fa-sun theme-toggle-icon text-amber-400"></i>
+        </button>
+
+        <a href="disciplinas.html" class="btn-secondary text-xs hidden sm:inline-flex">
+          <i class="fas fa-book"></i> Revisar Conteúdos
+        </a>
+
+        <!-- Botão Mobile Menu -->
+        <button class="btn-action md:hidden" id="mobile-menu-btn" title="Abrir Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu Responsivo Mobile -->
+    <div class="md:hidden hidden pt-3 mt-3 border-t border-[var(--border-color)]" id="mobile-nav-menu">
+      <div class="flex flex-col gap-1.5 pb-2">
+        <a href="index.html" class="nav-link">
+          <i class="fas fa-home"></i> Início
+        </a>
+        <a href="disciplinas.html" class="nav-link">
+          <i class="fas fa-folder-tree"></i> Disciplinas & Pastas
+        </a>
+        <a href="cursos.html" class="nav-link">
+          <i class="fas fa-university"></i> Cursos IFSC
+        </a>
+        <a href="simulado.html" class="nav-link active">
+          <i class="fas fa-stopwatch"></i> Simulado Interativo
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL (SIMULADO) -->
+  <main class="flex-1 max-w-5xl w-full mx-auto p-4 md:p-8">
+
+    <!-- =========================================================================
+         PAINEL 1: CONFIGURAÇÃO INICIAL DO SIMULADO
+         ========================================================================= -->
+    <section class="glass-card p-6 md:p-10" id="painel-config-simulado">
+      <div class="max-w-2xl mx-auto text-center mb-8">
+        <div class="w-16 h-16 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-3xl mx-auto mb-4 border border-emerald-500/40">
+          <i class="fas fa-clipboard-check"></i>
+        </div>
+        <h2 class="text-3xl font-extrabold font-heading text-slate-100 mb-2">
+          Simulado Interativo <span class="text-emerald-400">Estudos IF</span>
+        </h2>
+        <p class="text-xs md:text-sm text-slate-300 leading-relaxed font-light">
+          Teste seus conhecimentos para o processo seletivo do IFSC. As questões são sorteadas aleatoriamente a partir do banco de conteúdos de <strong>História, Português, Matemática, Ciências e Geografia</strong>.
+        </p>
+      </div>
+
+      <div class="max-w-lg mx-auto space-y-5 bg-black/25 border border-[var(--border-color)] p-6 rounded-2xl mb-8">
+        <!-- Seleção de Disciplina -->
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+            <i class="fas fa-layer-group text-emerald-400 mr-1.5"></i> Disciplina do Simulado
+          </label>
+          <select id="filtro-simulado-disciplina" class="w-full px-4 py-2.5 rounded-xl bg-[var(--input-bg)] border border-[var(--input-border)] text-sm text-slate-100 focus:outline-none focus:border-emerald-500">
+            <option value="todas">Todas as Disciplinas (Simulado Misto Geral)</option>
+            <option value="historia">Apenas História</option>
+            <option value="portugues">Apenas Português</option>
+            <option value="matematica">Apenas Matemática</option>
+            <option value="ciencias">Apenas Ciências</option>
+            <option value="geografia">Apenas Geografia</option>
+          </select>
+        </div>
+
+        <!-- Quantidade de Questões -->
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+            <i class="fas fa-list-ol text-cyan-400 mr-1.5"></i> Quantidade de Questões
+          </label>
+          <select id="filtro-simulado-qtd" class="w-full px-4 py-2.5 rounded-xl bg-[var(--input-bg)] border border-[var(--input-border)] text-sm text-slate-100 focus:outline-none focus:border-emerald-500">
+            <option value="5">5 Questões (Rápido / Nivelamento)</option>
+            <option value="10" selected>10 Questões (Recomendado / Médio)</option>
+            <option value="15">15 Questões (Completo)</option>
+            <option value="20">20 Questões (Desafio Máximo)</option>
+          </select>
+        </div>
+
+        <!-- Opção de Cronômetro -->
+        <div class="flex items-center gap-3 pt-2">
+          <input type="checkbox" id="filtro-simulado-tempo" checked class="w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500 bg-black/40 border-slate-600">
+          <label for="filtro-simulado-tempo" class="text-xs text-slate-300 cursor-pointer">
+            Ativar cronômetro de contagem do tempo de prova
+          </label>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button id="btn-iniciar-simulado" class="btn-primary px-8 py-3.5 text-sm font-bold shadow-lg shadow-emerald-950">
+          <i class="fas fa-play mr-2"></i> Iniciar Simulado Agora
+        </button>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         PAINEL 2: EXECUÇÃO DO SIMULADO (QUESTÕES)
+         ========================================================================= -->
+    <section class="glass-card p-6 md:p-8 hidden" id="painel-execucao-simulado">
+      <!-- Barra Superior de Status (Progresso e Cronômetro) -->
+      <div class="flex items-center justify-between gap-4 mb-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-400" id="progresso-questoes-texto">
+            Questão 1 de 10
+          </span>
+        </div>
+
+        <div id="timer-display" class="flex items-center gap-2 px-3 py-1 rounded-full bg-black/30 border border-white/10 text-xs font-mono font-bold text-slate-300">
+          <i class="far fa-clock text-amber-400"></i>
+          <span id="tempo-decorrido-texto">00:00</span>
+        </div>
+      </div>
+
+      <!-- Barra de Progresso Animada -->
+      <div class="w-full h-2 rounded-full bg-black/40 overflow-hidden mb-6 border border-white/5">
+        <div class="h-full bg-gradient-to-r from-emerald-500 to-cyan-400 transition-all duration-300" id="barra-progresso-simulado" style="width: 10%;"></div>
+      </div>
+
+      <!-- Conteúdo da Questão Atual -->
+      <div id="questao-conteudo-container" class="min-h-[280px]">
+        <!-- Injetado dinamicamente via js/simulado.js -->
+      </div>
+
+      <!-- Botões de Navegação Entre Questões -->
+      <div class="flex items-center justify-between gap-3 pt-6 border-t border-[var(--border-color)]">
+        <button type="button" id="btn-anterior-questao" class="btn-secondary text-xs" onclick="anteriorQuestao()">
+          <i class="fas fa-chevron-left mr-1.5"></i> Questão Anterior
+        </button>
+
+        <button type="button" id="btn-proxima-questao" class="btn-primary text-xs" onclick="proximaQuestao()">
+          Próxima Questão <i class="fas fa-chevron-right ml-1.5"></i>
+        </button>
+
+        <button type="button" id="btn-finalizar-simulado" class="btn-primary text-xs hidden bg-gradient-to-r from-emerald-600 to-cyan-600" onclick="finalizarSimulado()">
+          <i class="fas fa-check-double mr-1.5"></i> Finalizar & Ver Gabarito Lúdico
+        </button>
+      </div>
+
+      <!-- Paleta do Mapa de Questões (Chips de 1 a N) -->
+      <div class="mt-8 pt-4 border-t border-dashed border-[var(--border-color)]">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Mapa de Respostas:</span>
+          <span class="text-[11px] text-slate-500">Clique no número para pular diretamente à questão</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-2" id="mapa-questoes-container">
+          <!-- Chips gerados via js/simulado.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         PAINEL 3: GABARITO & RESULTADO LÚDICO (ANIME.JS + CONFETTI)
+         ========================================================================= -->
+    <section class="glass-card p-6 md:p-10 hidden" id="painel-gabarito-simulado">
+      <!-- Cabeçalho do Resultado com Círculo de Pontuação e Medalha -->
+      <div class="max-w-xl mx-auto text-center mb-10">
+        
+        <!-- Círculo de Desempenho SVG Animado via Anime.js -->
+        <div class="score-circle-wrapper">
+          <svg class="score-circle-svg" viewBox="0 0 160 160">
+            <circle class="score-circle-bg" cx="80" cy="80" r="70" />
+            <circle class="score-circle-progress" id="score-circle-svg-bar" cx="80" cy="80" r="70" />
+          </svg>
+          <div class="score-circle-text">
+            <div class="score-percent" id="score-percent-counter">0%</div>
+            <div class="score-label">Aproveitamento</div>
+          </div>
+        </div>
+
+        <!-- Medalha Lúdica e Feedback Motivador -->
+        <div class="mb-3">
+          <span id="resultado-medalha-badge" class="badge-medal gold">
+            <i class="fas fa-trophy"></i> Carregando Resultado...
+          </span>
+        </div>
+
+        <h3 class="text-xl md:text-2xl font-black font-heading text-slate-100 mb-2" id="resultado-titulo-ludico">
+          Parabéns pelo seu empenho!
+        </h3>
+
+        <p class="text-xs md:text-sm text-slate-300 leading-relaxed font-light mb-6" id="resultado-mensagem-ludica">
+          Confira abaixo o seu gabarito comentado questão a questão.
+        </p>
+
+        <!-- Métricas Rápidas -->
+        <div class="grid grid-cols-2 gap-3 p-4 rounded-xl bg-black/30 border border-white/10 text-xs">
+          <div>
+            <div class="text-slate-400">Total de Acertos</div>
+            <div class="text-base font-bold text-emerald-400 font-mono" id="resultado-nota-texto">0 / 10</div>
+          </div>
+          <div>
+            <div class="text-slate-400">Tempo de Prova</div>
+            <div class="text-base font-bold text-cyan-400 font-mono" id="resultado-tempo-texto">00:00</div>
+          </div>
+        </div>
+
+        <!-- Botões de Ação Pós-Simulado -->
+        <div class="flex flex-wrap items-center justify-center gap-3 mt-6">
+          <button id="btn-refazer-simulado" class="btn-primary text-xs">
+            <i class="fas fa-redo mr-1.5"></i> Fazer Novo Simulado
+          </button>
+          <a href="disciplinas.html" class="btn-secondary text-xs">
+            <i class="fas fa-book mr-1.5"></i> Estudar Tópicos nas Pastas
+          </a>
+          <a href="cursos.html" class="btn-action text-xs">
+            <i class="fas fa-graduation-cap mr-1.5"></i> Ver Cursos do Câmpus
+          </a>
+        </div>
+      </div>
+
+      <!-- Revisão Detalhada Questão por Questão -->
+      <div class="pt-8 border-t border-[var(--border-color)]">
+        <div class="mb-6">
+          <h4 class="text-lg font-bold font-heading text-slate-100 flex items-center gap-2">
+            <i class="fas fa-list-check text-emerald-400"></i> Revisão Detalhada e Gabarito Comentado
+          </h4>
+          <p class="text-xs text-slate-400">Analise os seus erros e acertos com justificativas pedagógicas detalhadas.</p>
+        </div>
+
+        <div class="space-y-6" id="revisao-questoes-container">
+          <!-- Injetado via js/simulado.js -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ GLOBAL -->
+  <footer class="mt-16 border-t border-[var(--border-color)] bg-[var(--header-bg)] py-8 px-4 text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold">
+          IF
+        </div>
+        <div>
+          <div class="text-slate-200 font-bold">Estudos IF • Projeto Integrador I</div>
+          <div>IFSC — Instituto Federal de Santa Catarina (Câmpus Garopaba)</div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <a href="index.html" class="hover:text-emerald-400 transition-colors">Início</a>
+        <a href="disciplinas.html" class="hover:text-emerald-400 transition-colors">Disciplinas</a>
+        <a href="cursos.html" class="hover:text-emerald-400 transition-colors">Cursos IFSC</a>
+        <a href="simulado.html" class="hover:text-emerald-400 transition-colors">Simulado</a>
+      </div>
+
+      <div class="text-center md:text-right">
+        <div>Autores: <strong>Vitória V. S. Ortiz</strong> & <strong>Brenda L. V. Carneiro</strong></div>
+        <div class="text-slate-500">Desenvolvido com HTML, CSS, JavaScript & Anime.js</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/conteudos-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/simulado.js"></script>
+</body>
+</html>
+

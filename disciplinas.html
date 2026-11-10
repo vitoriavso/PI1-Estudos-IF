@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disciplinas & Pastas de Conteúdo — Estudos IF</title>
+  <meta name="description" content="Organização modular de conteúdos por disciplina em formato de fichário e pastas interativas, com resumos, linhas do tempo e questionários de fixação.">
+
+  <!-- Google Fonts: Inter, Outfit e Fira Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Anime.js & Canvas-Confetti -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+  <!-- Sistema de Estilos Personalizado do IFSC -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO GLOBAL -->
+  <header class="site-header">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <a href="index.html" class="flex items-center gap-3 text-decoration-none">
+        <div class="logo-badge">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div>
+          <h1 class="text-lg md:text-xl font-extrabold font-heading text-slate-100 flex items-center gap-1.5 leading-none">
+            Estudos <span class="text-emerald-400">IF</span>
+          </h1>
+          <p class="text-xs text-slate-400 font-medium">IFSC • Câmpus Garopaba</p>
+        </div>
+      </a>
+
+      <!-- Navegação Desktop -->
+      <nav class="hidden md:flex items-center gap-1">
+        <a href="index.html" class="nav-link">
+          <i class="fas fa-home"></i> Início
+        </a>
+        <a href="disciplinas.html" class="nav-link active">
+          <i class="fas fa-folder-tree"></i> Disciplinas & Pastas
+        </a>
+        <a href="cursos.html" class="nav-link">
+          <i class="fas fa-university"></i> Cursos IFSC
+        </a>
+        <a href="simulado.html" class="nav-link">
+          <i class="fas fa-stopwatch"></i> Simulado Interativo
+        </a>
+      </nav>
+
+      <!-- Ações do Cabeçalho -->
+      <div class="flex items-center gap-2.5">
+        <button class="btn-action theme-toggle-btn" title="Alternar Modo Escuro / Claro">
+          <i class="fas fa-sun theme-toggle-icon text-amber-400"></i>
+        </button>
+
+        <a href="simulado.html" class="btn-primary text-xs hidden sm:inline-flex">
+          <i class="fas fa-play"></i> Fazer Simulado
+        </a>
+
+        <!-- Botão Mobile Menu -->
+        <button class="btn-action md:hidden" id="mobile-menu-btn" title="Abrir Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu Responsivo Mobile -->
+    <div class="md:hidden hidden pt-3 mt-3 border-t border-[var(--border-color)]" id="mobile-nav-menu">
+      <div class="flex flex-col gap-1.5 pb-2">
+        <a href="index.html" class="nav-link">
+          <i class="fas fa-home"></i> Início
+        </a>
+        <a href="disciplinas.html" class="nav-link active">
+          <i class="fas fa-folder-tree"></i> Disciplinas & Pastas
+        </a>
+        <a href="cursos.html" class="nav-link">
+          <i class="fas fa-university"></i> Cursos IFSC
+        </a>
+        <a href="simulado.html" class="nav-link">
+          <i class="fas fa-stopwatch"></i> Simulado Interativo
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL (MASTER-DETAIL) -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-8">
+
+    <!-- BARRA SUPERIOR DE SELEÇÃO DE DISCIPLINA (PILL TABS) -->
+    <div class="mb-6">
+      <div class="flex items-center justify-between flex-wrap gap-3 mb-3">
+        <div>
+          <h2 class="text-2xl font-bold font-heading text-slate-100 flex items-center gap-2">
+            <i class="fas fa-folder-tree text-emerald-400"></i> Navegador de Disciplinas
+          </h2>
+          <p class="text-xs md:text-sm text-slate-400">
+            Selecione uma disciplina abaixo e navegue pelas pastas de conteúdos com resumos, cronologias e testes práticos.
+          </p>
+        </div>
+      </div>
+
+      <!-- Abas das 5 Disciplinas -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" id="disciplinas-tabs-bar">
+        <button class="disciplina-tab btn-action text-xs font-semibold whitespace-nowrap" data-disciplina="historia">
+          <i class="fas fa-landmark text-amber-400"></i> História
+        </button>
+        <button class="disciplina-tab btn-action text-xs font-semibold whitespace-nowrap" data-disciplina="portugues">
+          <i class="fas fa-book-open text-cyan-400"></i> Português
+        </button>
+        <button class="disciplina-tab btn-action text-xs font-semibold whitespace-nowrap" data-disciplina="matematica">
+          <i class="fas fa-calculator text-purple-400"></i> Matemática
+        </button>
+        <button class="disciplina-tab btn-action text-xs font-semibold whitespace-nowrap" data-disciplina="ciencias">
+          <i class="fas fa-dna text-emerald-400"></i> Ciências
+        </button>
+        <button class="disciplina-tab btn-action text-xs font-semibold whitespace-nowrap" data-disciplina="geografia">
+          <i class="fas fa-earth-americas text-blue-400"></i> Geografia
+        </button>
+      </div>
+    </div>
+
+    <!-- LAYOUT MASTER-DETAIL (2 COLUNAS) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+      <!-- COLUNA DA ESQUERDA: SUBMENU DE PASTAS (MASTER) -->
+      <aside class="lg:col-span-4 glass-card p-4 sticky top-24">
+        <div id="folders-container" class="folder-list">
+          <!-- Renderizado dinamicamente via js/disciplinas.js -->
+        </div>
+
+        <!-- Box de Apoio ao Simulado -->
+        <div class="mt-6 pt-4 border-t border-[var(--border-color)] p-3 rounded-xl bg-black/25 text-xs text-slate-400">
+          <div class="flex items-center gap-2 text-emerald-400 font-bold mb-1">
+            <i class="fas fa-bullseye"></i> Quer testar tudo de uma vez?
+          </div>
+          <p class="mb-2 text-slate-300">Faça um simulado completo com questões sorteadas e cronômetro de exame.</p>
+          <a href="simulado.html" class="btn-primary w-full justify-center text-xs py-2">
+            <i class="fas fa-play"></i> Abrir Simulado
+          </a>
+        </div>
+      </aside>
+
+      <!-- COLUNA DA DIREITA: PAINEL DE CONTEÚDO RICO (DETAIL) -->
+      <section class="lg:col-span-8 glass-card overflow-hidden" id="content-detail-pane">
+        <!-- Renderizado dinamicamente via js/disciplinas.js -->
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- RODAPÉ GLOBAL -->
+  <footer class="mt-16 border-t border-[var(--border-color)] bg-[var(--header-bg)] py-8 px-4 text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold">
+          IF
+        </div>
+        <div>
+          <div class="text-slate-200 font-bold">Estudos IF • Projeto Integrador I</div>
+          <div>IFSC — Instituto Federal de Santa Catarina (Câmpus Garopaba)</div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <a href="index.html" class="hover:text-emerald-400 transition-colors">Início</a>
+        <a href="disciplinas.html" class="hover:text-emerald-400 transition-colors">Disciplinas</a>
+        <a href="cursos.html" class="hover:text-emerald-400 transition-colors">Cursos IFSC</a>
+        <a href="simulado.html" class="hover:text-emerald-400 transition-colors">Simulado</a>
+      </div>
+
+      <div class="text-center md:text-right">
+        <div>Autores: <strong>Vitória V. S. Ortiz</strong> & <strong>Brenda L. V. Carneiro</strong></div>
+        <div class="text-slate-500">Desenvolvido com HTML, CSS, JavaScript & Anime.js</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/conteudos-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/disciplinas.js"></script>
+</body>
+</html>
+

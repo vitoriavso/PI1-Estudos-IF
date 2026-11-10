@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cursos Ofertados — IFSC Câmpus Garopaba</title>
+  <meta name="description" content="Espelho completo dos cursos técnicos integrados, subsequentes, concomitantes e graduação oferecidos no IFSC Câmpus Garopaba.">
+
+  <!-- Google Fonts: Inter, Outfit e Fira Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Anime.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+  <!-- Sistema de Estilos Personalizado do IFSC -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO GLOBAL -->
+  <header class="site-header">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <a href="index.html" class="flex items-center gap-3 text-decoration-none">
+        <div class="logo-badge">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div>
+          <h1 class="text-lg md:text-xl font-extrabold font-heading text-slate-100 flex items-center gap-1.5 leading-none">
+            Estudos <span class="text-emerald-400">IF</span>
+          </h1>
+          <p class="text-xs text-slate-400 font-medium">IFSC • Câmpus Garopaba</p>
+        </div>
+      </a>
+
+      <!-- Navegação Desktop -->
+      <nav class="hidden md:flex items-center gap-1">
+        <a href="index.html" class="nav-link">
+          <i class="fas fa-home"></i> Início
+        </a>
+        <a href="disciplinas.html" class="nav-link">
+          <i class="fas fa-folder-tree"></i> Disciplinas & Pastas
+        </a>
+        <a href="cursos.html" class="nav-link active">
+          <i class="fas fa-university"></i> Cursos IFSC
+        </a>
+        <a href="simulado.html" class="nav-link">
+          <i class="fas fa-stopwatch"></i> Simulado Interativo
+        </a>
+      </nav>
+
+      <!-- Ações do Cabeçalho -->
+      <div class="flex items-center gap-2.5">
+        <button class="btn-action theme-toggle-btn" title="Alternar Modo Escuro / Claro">
+          <i class="fas fa-sun theme-toggle-icon text-amber-400"></i>
+        </button>
+
+        <a href="simulado.html" class="btn-primary text-xs hidden sm:inline-flex">
+          <i class="fas fa-play"></i> Fazer Simulado
+        </a>
+
+        <!-- Botão Mobile Menu -->
+        <button class="btn-action md:hidden" id="mobile-menu-btn" title="Abrir Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu Responsivo Mobile -->
+    <div class="md:hidden hidden pt-3 mt-3 border-t border-[var(--border-color)]" id="mobile-nav-menu">
+      <div class="flex flex-col gap-1.5 pb-2">
+        <a href="index.html" class="nav-link">
+          <i class="fas fa-home"></i> Início
+        </a>
+        <a href="disciplinas.html" class="nav-link">
+          <i class="fas fa-folder-tree"></i> Disciplinas & Pastas
+        </a>
+        <a href="cursos.html" class="nav-link active">
+          <i class="fas fa-university"></i> Cursos IFSC
+        </a>
+        <a href="simulado.html" class="nav-link">
+          <i class="fas fa-stopwatch"></i> Simulado Interativo
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL (CATÁLOGO DE CURSOS) -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-8">
+
+    <!-- HERO DO CÂMPUS GAROPABA -->
+    <section class="glass-card p-6 md:p-8 mb-8 bg-gradient-to-r from-emerald-950/30 to-[var(--bg-card)] border border-emerald-500/25 rounded-2xl">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 mb-3">
+            <i class="fas fa-map-marker-alt"></i> IFSC Câmpus Garopaba • Rua Maria Aparecida Barbosa, 153
+          </div>
+          <h2 class="text-2xl md:text-4xl font-extrabold font-heading text-slate-100 mb-2">
+            Cursos Disponíveis no IFSC
+          </h2>
+          <p class="text-xs md:text-sm text-slate-300 max-w-2xl leading-relaxed">
+            Espelho atualizado da oferta de cursos públicos e gratuitos no <strong>IFSC Câmpus Garopaba</strong>. Explore as formações técnicas integradas ao Ensino Médio, graduações superiores e cursos rápidos de qualificação profissional.
+          </p>
+        </div>
+
+        <a href="https://www.ifsc.edu.br/web/campus-garopaba/cursos" target="_blank" rel="noopener noreferrer" class="btn-action flex-shrink-0 text-xs">
+          <i class="fas fa-external-link-alt mr-1"></i> Acessar Página Oficial do Câmpus
+        </a>
+      </div>
+    </section>
+
+    <!-- BARRA DE CONTROLE: BUSCA E FILTROS -->
+    <div class="mb-8 space-y-4">
+      <!-- Campo de Busca em Tempo Real -->
+      <div class="relative max-w-xl">
+        <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+        <input 
+          type="text" 
+          id="busca-curso-input" 
+          placeholder="Buscar curso por nome, área ou palavra-chave..." 
+          class="w-full pl-11 pr-4 py-3 rounded-xl bg-[var(--input-bg)] border border-[var(--input-border)] text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-colors"
+        >
+      </div>
+
+      <!-- Filtros por Modalidade de Ensino -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+        <button class="filtro-curso-btn px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-emerald-600 text-white border border-emerald-500 whitespace-nowrap" data-modalidade="todos">
+          Todos os Cursos
+        </button>
+        <button class="filtro-curso-btn px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-black/30 text-slate-400 border border-[var(--border-color)] hover:text-slate-200 whitespace-nowrap" data-modalidade="integrado">
+          Técnico Integrado
+        </button>
+        <button class="filtro-curso-btn px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-black/30 text-slate-400 border border-[var(--border-color)] hover:text-slate-200 whitespace-nowrap" data-modalidade="concomitante">
+          Técnico Concomitante
+        </button>
+        <button class="filtro-curso-btn px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-black/30 text-slate-400 border border-[var(--border-color)] hover:text-slate-200 whitespace-nowrap" data-modalidade="subsequente">
+          Técnico Subsequente
+        </button>
+        <button class="filtro-curso-btn px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-black/30 text-slate-400 border border-[var(--border-color)] hover:text-slate-200 whitespace-nowrap" data-modalidade="superior">
+          Ensino Superior (Graduação)
+        </button>
+        <button class="filtro-curso-btn px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-black/30 text-slate-400 border border-[var(--border-color)] hover:text-slate-200 whitespace-nowrap" data-modalidade="fic">
+          Qualificação / FIC
+        </button>
+      </div>
+
+      <!-- Contador de Resultados -->
+      <div class="text-xs text-slate-400 font-mono" id="contador-cursos">
+        Carregando cursos...
+      </div>
+    </div>
+
+    <!-- GRID DE CURSOS (RENDERIZADO DINAMICAMENTE) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="cursos-grid-container">
+      <!-- Renderizado via js/cursos.js -->
+    </div>
+
+  </main>
+
+  <!-- MODAL DE DETALHES DO CURSO -->
+  <div class="modal-backdrop" id="modal-curso-backdrop">
+    <div class="modal-content" id="modal-curso-body">
+      <!-- Conteúdo injetado via js/cursos.js -->
+    </div>
+  </div>
+
+  <!-- RODAPÉ GLOBAL -->
+  <footer class="mt-16 border-t border-[var(--border-color)] bg-[var(--header-bg)] py-8 px-4 text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold">
+          IF
+        </div>
+        <div>
+          <div class="text-slate-200 font-bold">Estudos IF • Projeto Integrador I</div>
+          <div>IFSC — Instituto Federal de Santa Catarina (Câmpus Garopaba)</div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <a href="index.html" class="hover:text-emerald-400 transition-colors">Início</a>
+        <a href="disciplinas.html" class="hover:text-emerald-400 transition-colors">Disciplinas</a>
+        <a href="cursos.html" class="hover:text-emerald-400 transition-colors">Cursos IFSC</a>
+        <a href="simulado.html" class="hover:text-emerald-400 transition-colors">Simulado</a>
+      </div>
+
+      <div class="text-center md:text-right">
+        <div>Autores: <strong>Vitória V. S. Ortiz</strong> & <strong>Brenda L. V. Carneiro</strong></div>
+        <div class="text-slate-500">Desenvolvido com HTML, CSS, JavaScript & Anime.js</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/cursos-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/cursos.js"></script>
+</body>
+</html>
+
