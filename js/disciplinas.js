@@ -116,7 +116,7 @@ function renderizarPastas() {
               ${idx + 1}. ${topico.titulo}
             </h4>
             <div class="flex items-center gap-2 mt-1 text-xs text-slate-400">
-              <span><i class="far fa-clock mr-1"></i>${topico.tempoLeitura}</span>
+              <span><i class="far fa-clock mr-1"></i>${topico.tempoLeitura || '5 min'}</span>
               <span>•</span>
               <span class="text-emerald-400 font-mono font-medium">${topico.questoes.length} Questões</span>
             </div>
@@ -194,7 +194,6 @@ function selecionarTopico(index) {
 
 /**
  * Renderiza o painel completo de conteúdo detalhado à direita
- * Padrão Editorial Toda Matéria + Identidade Visual IFSC + Tech André
  */
 function renderizarConteudoDetalhado() {
   const container = document.getElementById('content-detail-pane');
@@ -204,113 +203,54 @@ function renderizarConteudoDetalhado() {
   const topico = discInfo.topicos[topicoAtualIndex];
   if (!topico) return;
 
-  const totalTopicosDisc = discInfo.topicos.length;
-  const proxIndex = (topicoAtualIndex + 1 < totalTopicosDisc) ? topicoAtualIndex + 1 : null;
-  const prevIndex = (topicoAtualIndex > 0) ? topicoAtualIndex - 1 : null;
-
-  // 1. Cabeçalho com Breadcrumbs, Badges e Autores (Estilo Toda Matéria + IFSC)
+  // 1. Cabeçalho com Badges
   let html = `
-    <div class="p-6 md:p-8 border-b border-[var(--border-color)] bg-gradient-to-b from-black/10 to-transparent">
-      <!-- Breadcrumb Navegacional -->
-      <nav class="breadcrumb-nav">
-        <a href="index.html"><i class="fas fa-home mr-1"></i>Início</a>
-        <i class="fas fa-chevron-right text-[10px] text-slate-500"></i>
-        <a href="disciplinas.html">Disciplinas</a>
-        <i class="fas fa-chevron-right text-[10px] text-slate-500"></i>
-        <span class="text-emerald-400 font-semibold">${discInfo.nome}</span>
-        <i class="fas fa-chevron-right text-[10px] text-slate-500"></i>
-        <span class="text-slate-400 font-medium truncate max-w-[200px]">${topico.titulo}</span>
-      </nav>
-
+    <div class="p-6 md:p-8 border-b border-[var(--border-color)]">
       <div class="flex flex-wrap items-center gap-2 mb-3">
-        <span class="badge-disc badge-disc-${disciplinaAtual}">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/15 border border-emerald-500/40 text-emerald-400">
           <i class="fas ${discInfo.icone}"></i> ${discInfo.nome}
         </span>
         <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded text-xs font-mono font-medium bg-black/30 border border-white/10 text-slate-300">
-          <i class="far fa-clock"></i> ${topico.tempoLeitura}
+          <i class="far fa-clock"></i> ${topico.tempoLeitura || '5 min'}
         </span>
-        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-xs font-bold bg-emerald-500/15 border border-emerald-500/35 text-emerald-400">
-          <i class="fas fa-check-double"></i> Alinhado ao Edital IFSC
+        <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded text-xs font-medium bg-cyan-500/15 border border-cyan-500/30 text-cyan-300">
+          <i class="fas fa-check-double"></i> Validado pelo IFSC Garopaba
         </span>
       </div>
 
-      <h1 class="text-2xl md:text-3.5xl font-black font-heading text-slate-100 mb-2.5 leading-tight">
+      <h1 class="text-2xl md:text-3xl font-extrabold font-heading text-slate-100 mb-2 leading-tight">
         ${topico.titulo}
       </h1>
-      <p class="text-sm md:text-base text-slate-400 leading-relaxed font-normal mb-4">
-        ${topico.subtitulo}
+      <p class="text-sm md:text-base text-slate-400 leading-relaxed font-normal">
+        ${topico.subtitulo || ''}
       </p>
 
-      <!-- Cartão dos Autores e Validação Pedagógica -->
-      <div class="pt-3 border-t border-dashed border-[var(--border-color)] flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400">
-        <div class="flex items-center gap-2.5">
-          <div class="w-7 h-7 rounded-full bg-emerald-600/30 border border-emerald-500/50 text-emerald-400 flex items-center justify-center font-bold text-xs">
-            <i class="fas fa-pen-nib"></i>
-          </div>
-          <div>
-            <span>Escrito por: <strong class="text-slate-200">Vitória Ortiz</strong> e <strong class="text-slate-200">Brenda Carneiro</strong></span>
-          </div>
+      <div class="mt-4 pt-3 border-t border-dashed border-[var(--border-color)] flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400">
+        <div class="flex items-center gap-2">
+          <i class="fas fa-user-edit text-emerald-400"></i>
+          <span>Elaboração: <strong class="text-slate-200">Vitória Ortiz & Brenda Carneiro</strong></span>
         </div>
         <div class="flex items-center gap-2">
-          <i class="fas fa-chalkboard-teacher text-cyan-400"></i>
-          <span>Revisão: <strong class="text-slate-200">Professores do IFSC Câmpus Garopaba</strong></span>
+          <i class="fas fa-graduation-cap text-cyan-400"></i>
+          <span>Nível: <strong class="text-slate-200">Exame de Ingresso IFSC</strong></span>
         </div>
       </div>
     </div>
+  `;
 
-    <div class="p-6 md:p-8 space-y-7">
-
-      <!-- Sumário Interno do Artigo (Estilo Toda Matéria "Neste Artigo") -->
-      <div class="sumario-box">
-        <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5 flex items-center gap-2">
-          <i class="fas fa-list-ul text-emerald-400"></i> Neste Conteúdo Você Vai Encontrar:
-        </div>
-        <div class="flex flex-wrap gap-2">
-          <a href="#sec-resumo" class="sumario-pill"><i class="fas fa-align-left text-xs"></i> 1. Resumo</a>
-          <a href="#sec-dica-ifsc" class="sumario-pill"><i class="fas fa-bullseye text-xs text-emerald-400"></i> 2. Dica de Prova IFSC</a>
-          <a href="#sec-contexto" class="sumario-pill"><i class="fas fa-book text-xs"></i> 3. Teoria Completa</a>
-          <a href="#sec-conceitos" class="sumario-pill"><i class="fas fa-layer-group text-xs text-amber-400"></i> 4. Conceitos-Chave</a>
-          <a href="#sec-timeline" class="sumario-pill"><i class="fas fa-stream text-xs text-cyan-400"></i> 5. Linha do Tempo</a>
-          <a href="#sec-glossario" class="sumario-pill"><i class="fas fa-spell-check text-xs text-purple-400"></i> 6. Glossário</a>
-          <a href="#sec-videoaula" class="sumario-pill"><i class="fab fa-youtube text-xs text-red-500"></i> 7. Videoaula</a>
-          <a href="#sec-exercicios" class="sumario-pill"><i class="fas fa-pencil-alt text-xs text-emerald-400"></i> 8. Exercícios Resolvidos</a>
-        </div>
-      </div>
-
-      <!-- 2. Resumo Essencial -->
-      <div id="sec-resumo" class="bg-emerald-950/20 border border-emerald-500/25 rounded-xl p-4 md:p-5">
+  // 2. Resumo e Contexto Histórico/Conceitual
+  html += `
+    <div class="p-6 md:p-8 space-y-6">
+      <div class="bg-emerald-950/20 border border-emerald-500/25 rounded-xl p-4 md:p-5">
         <h3 class="text-sm uppercase tracking-wider font-bold text-emerald-400 flex items-center gap-2 mb-2">
           <i class="fas fa-lightbulb"></i> Visão Geral & Resumo Essencial
         </h3>
         <p class="text-sm md:text-base text-slate-300 leading-relaxed">
-          ${topico.resumo}
+          ${topico.resumo || ''}
         </p>
       </div>
 
-      <!-- Callout: Dica Especial para o Exame de Ingresso do IFSC -->
-      <div id="sec-dica-ifsc" class="callout-box callout-dica-ifsc">
-        <div class="flex items-center gap-2 font-bold text-emerald-400 text-sm mb-1.5">
-          <i class="fas fa-bookmark"></i> Fique Atento! Dica para o Processo Seletivo do IFSC
-        </div>
-        <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
-          ${topico.dicaIFSC || "Foque nos conceitos estruturais e aplicações práticas deste tema nos editais do IFSC."}
-        </p>
-      </div>
-
-      <!-- Callout: Você Sabia? (Toda Matéria Style) -->
-      ${topico.voceSabia ? `
-        <div class="callout-box callout-vocesabia">
-          <div class="flex items-center gap-2 font-bold text-cyan-400 text-sm mb-1.5">
-            <i class="fas fa-compass"></i> Você Sabia?
-          </div>
-          <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
-            ${topico.voceSabia}
-          </p>
-        </div>
-      ` : ''}
-
-      <!-- 3. Contexto e Fundamentação Teórica -->
-      <div id="sec-contexto">
+      <div>
         <h3 class="text-lg font-bold font-heading text-slate-100 mb-3 flex items-center gap-2">
           <i class="fas fa-book-reader text-cyan-400"></i> Contexto & Fundamentação Teórica
         </h3>
@@ -320,10 +260,10 @@ function renderizarConteudoDetalhado() {
       </div>
   `;
 
-  // 4. Tópicos Chave / Conceitos Fundamentais
+  // 3. Tópicos Chave / Conceitos Fundamentais
   if (topico.topicosChave && topico.topicosChave.length > 0) {
     html += `
-      <div id="sec-conceitos">
+      <div>
         <h3 class="text-lg font-bold font-heading text-slate-100 mb-4 flex items-center gap-2">
           <i class="fas fa-layer-group text-amber-400"></i> Conceitos e Estruturas Fundamentais
         </h3>
@@ -350,10 +290,10 @@ function renderizarConteudoDetalhado() {
     `;
   }
 
-  // 5. Linha do Tempo / Esquema Didático
+  // 4. Linha do Tempo / Esquema Didático
   if (topico.timeline && topico.timeline.length > 0) {
     html += `
-      <div id="sec-timeline" class="pt-2">
+      <div class="pt-2">
         <h3 class="text-lg font-bold font-heading text-slate-100 mb-4 flex items-center gap-2">
           <i class="fas fa-stream text-emerald-400"></i> Linha do Tempo e Etapas Metodológicas
         </h3>
@@ -377,10 +317,10 @@ function renderizarConteudoDetalhado() {
     `;
   }
 
-  // 6. Termos-Chave e Glossário
+  // 5. Termos-Chave e Glossário
   if (topico.termosChave && topico.termosChave.length > 0) {
     html += `
-      <div id="sec-glossario" class="pt-2">
+      <div class="pt-2">
         <h3 class="text-lg font-bold font-heading text-slate-100 mb-3 flex items-center gap-2">
           <i class="fas fa-spell-check text-purple-400"></i> Glossário de Termos Essenciais
         </h3>
@@ -402,10 +342,10 @@ function renderizarConteudoDetalhado() {
     `;
   }
 
-  // 7. Recomendação de Videoaula (YouTube)
+  // 6. Recomendação de Videoaula (YouTube)
   if (topico.videoAula) {
     html += `
-      <div id="sec-videoaula" class="bg-gradient-to-r from-red-950/20 to-black/30 border border-red-500/25 rounded-xl p-4 md:p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div class="bg-gradient-to-r from-red-950/20 to-black/30 border border-red-500/25 rounded-xl p-4 md:p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div class="flex items-center gap-3.5">
           <div class="w-12 h-12 rounded-xl bg-red-600/20 border border-red-500/40 text-red-500 flex items-center justify-center text-xl flex-shrink-0">
             <i class="fab fa-youtube"></i>
@@ -423,16 +363,16 @@ function renderizarConteudoDetalhado() {
     `;
   }
 
-  // 8. Exercícios com Gabarito e Justificativa (Estilo Toda Matéria)
+  // 7. Mini Questionário de Fixação (Quiz Interativo do Tópico)
   if (topico.questoes && topico.questoes.length > 0) {
     html += `
-      <div id="sec-exercicios" class="quiz-container">
+      <div class="quiz-container">
         <div class="flex items-center justify-between mb-4 border-b border-[var(--border-color)] pb-3">
           <div>
             <h3 class="text-lg font-bold font-heading text-slate-100 flex items-center gap-2">
-              <i class="fas fa-pencil-alt text-emerald-400"></i> Exercícios com Gabarito Comentado
+              <i class="fas fa-pencil-alt text-emerald-400"></i> Questões de Fixação do Conteúdo
             </h3>
-            <p class="text-xs text-slate-400">Resolva as questões simuladas do IFSC e confira a resolução comentada passo a passo.</p>
+            <p class="text-xs text-slate-400">Responda às questões simuladas e valide seu aprendizado de imediato.</p>
           </div>
           <span class="text-xs font-mono font-bold px-2.5 py-1 rounded bg-emerald-500/15 border border-emerald-500/30 text-emerald-400">
             ${topico.questoes.length} Questões
@@ -493,44 +433,7 @@ function renderizarConteudoDetalhado() {
     `;
   }
 
-  // 9. Citação Acadêmica ABNT (Estilo Toda Matéria)
-  html += `
-    <div class="citacao-abnt">
-      <div class="text-xs font-bold text-slate-300 mb-1 flex items-center gap-1.5">
-        <i class="fas fa-quote-left text-emerald-400"></i> Como Citar este Conteúdo (Normas ABNT):
-      </div>
-      <div>
-        ORTIZ, Vitória V. S.; CARNEIRO, Brenda L. V. <strong>${topico.titulo}</strong>. Portal Educacional Estudos IF — Instituto Federal de Santa Catarina (Câmpus Garopaba), 2026. Disponível em: &lt;https://www.ifsc.edu.br/web/campus-garopaba&gt;.
-      </div>
-    </div>
-  `;
-
-  // 10. Navegação Sequencial / Próximo Tópico (Toda Matéria "Veja Também")
-  html += `
-    <div class="pt-6 border-t border-[var(--border-color)] flex flex-wrap items-center justify-between gap-3">
-      <div>
-        ${prevIndex !== null ? `
-          <button class="btn-secondary text-xs" onclick="selecionarTopico(${prevIndex})">
-            <i class="fas fa-arrow-left mr-1.5"></i> Tópico Anterior: ${discInfo.topicos[prevIndex].titulo}
-          </button>
-        ` : '<span></span>'}
-      </div>
-
-      <div>
-        ${proxIndex !== null ? `
-          <button class="btn-primary text-xs" onclick="selecionarTopico(${proxIndex})">
-            Próximo Tópico: ${discInfo.topicos[proxIndex].titulo} <i class="fas fa-arrow-right ml-1.5"></i>
-          </button>
-        ` : `
-          <a href="simulado.html" class="btn-primary text-xs">
-            <i class="fas fa-trophy mr-1.5"></i> Fazer Simulado desta Matéria
-          </a>
-        `}
-      </div>
-    </div>
-  `;
-
-  html += `</div>`; // fecha div space-y-7
+  html += `</div>`; // fecha div p-6 md:p-8 space-y-6
 
   container.innerHTML = html;
 }
