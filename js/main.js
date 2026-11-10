@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   highlightActiveNavLink();
   initButtonFeedback();
+  initGlobalSearch();
 });
 
 /**
@@ -103,5 +104,61 @@ function formatarTempo(segundos) {
   const mins = Math.floor(segundos / 60);
   const segs = segundos % 60;
   return `${mins.toString().padStart(2, '0')}:${segs.toString().padStart(2, '0')}`;
+}
+
+/**
+ * 4. Barra de Busca Rápida Global de Conteúdos (Estilo Toda Matéria)
+ */
+function initGlobalSearch() {
+  const searchInput = document.getElementById('global-search-input');
+  const searchResults = document.getElementById('global-search-results');
+  if (!searchInput || !searchResults) return;
+
+  searchInput.addEventListener('input', (e) => {
+    if (typeof CONTEUDOS_DATA === 'undefined') return;
+    const term = e.target.value.toLowerCase().trim();
+
+    if (term.length < 2) {
+      searchResults.classList.add('hidden');
+      searchResults.innerHTML = '';
+      return;
+    }
+
+    const matches = [];
+    Object.keys(CONTEUDOS_DATA).forEach(discKey => {
+      const disc = CONTEUDOS_DATA[discKey];
+      disc.topicos.forEach((t, idx) => {
+        if (
+          t.titulo.toLowerCase().includes(term) ||
+          t.subtitulo.toLowerCase().includes(term) ||
+          t.resumo.toLowerCase().includes(term)
+        ) {
+          matches.push({ discKey, discNome: disc.nome, topico: t, idx });
+        }
+      });
+    });
+
+    if (matches.length === 0) {
+      searchResults.innerHTML = '<div class="p-3 text-slate-400 text-center text-xs">Nenhum conteúdo encontrado para esta busca.</div>';
+    } else {
+      searchResults.innerHTML = matches.slice(0, 6).map(m => `
+        <a href="disciplinas.html?disc=${m.discKey}&topico=${m.idx}" class="block p-2.5 rounded-lg hover:bg-emerald-500/15 text-slate-200 text-decoration-none transition-colors border-b border-white/5 last:border-b-0">
+          <div class="flex items-center justify-between text-[11px] text-emerald-400 font-bold mb-0.5">
+            <span><i class="fas fa-book-open mr-1"></i>${m.discNome}</span>
+            <span class="font-mono text-slate-500">Tópico ${m.idx + 1}</span>
+          </div>
+          <div class="font-bold text-xs text-slate-100">${m.topico.titulo}</div>
+          <div class="text-[11px] text-slate-400 truncate">${m.topico.resumo}</div>
+        </a>
+      `).join('');
+    }
+    searchResults.classList.remove('hidden');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+      searchResults.classList.add('hidden');
+    }
+  });
 }
 

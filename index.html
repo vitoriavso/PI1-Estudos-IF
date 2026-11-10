@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estudos IF — Portal Educacional de Apoio ao Ingresso no IFSC</title>
-  <meta name="description" content="Plataforma educacional gratuita e aberta criada para auxiliar estudantes na preparação aos processos seletivos do Instituto Federal de Santa Catarina (IFSC).">
+  <title>Estudos IF — Apoio Educacional e Ingresso no IFSC Câmpus Garopaba</title>
+  <meta name="description" content="Portal educacional aberto e gratuito para estudantes que desejam ingressar no Instituto Federal de Santa Catarina (IFSC). Conteúdos completos, simulados e catálogo de cursos.">
 
   <!-- Google Fonts: Inter, Outfit e Fira Code -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,25 +21,66 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
-  <!-- Sistema de Estilos Personalizado do IFSC -->
+  <!-- Sistema de Estilos: Fusão IFSC + Toda Matéria + André -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+  <!-- BARRA INSTITUCIONAL DO GOVERNO / IFSC (ESTILO IFSC.EDU.BR) -->
+  <div class="ifsc-gov-bar">
+    <div class="max-w-7xl mx-auto w-full flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-white tracking-wider">BRASIL</span>
+        <span class="opacity-40">|</span>
+        <span>Ministério da Educação</span>
+        <span class="opacity-40 hidden md:inline">|</span>
+        <span class="hidden md:inline">Instituto Federal de Santa Catarina — Câmpus Garopaba</span>
+      </div>
+      <div class="flex items-center gap-4 text-[11px]">
+        <a href="https://www.ifsc.edu.br" target="_blank" rel="noopener"><i class="fas fa-external-link-alt mr-1"></i>Portal IFSC</a>
+        <a href="cursos.html">Cursos do Câmpus</a>
+        <a href="simulado.html" class="text-emerald-300 font-bold"><i class="fas fa-check-circle mr-1"></i>Simulado</a>
+      </div>
+    </div>
+  </div>
+
   <!-- CABEÇALHO GLOBAL -->
   <header class="site-header">
     <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
-      <a href="index.html" class="flex items-center gap-3 text-decoration-none">
-        <div class="logo-badge">
-          <i class="fas fa-graduation-cap"></i>
+      <!-- Marca Oficial com o Símbolo da Rede Federal (3x3 squares) -->
+      <a href="index.html" class="flex items-center gap-3 text-decoration-none flex-shrink-0">
+        <div class="ifsc-brand-symbol" title="Símbolo Oficial da Rede Federal de Educação">
+          <div class="ifsc-sq red-head"></div>
+          <div class="ifsc-sq"></div>
+          <div class="ifsc-sq"></div>
+          <div class="ifsc-sq"></div>
+          <div class="ifsc-sq"></div>
+          <div class="ifsc-sq"></div>
+          <div class="ifsc-sq"></div>
+          <div class="ifsc-sq"></div>
+          <div class="ifsc-sq"></div>
         </div>
         <div>
-          <h1 class="text-lg md:text-xl font-extrabold font-heading text-slate-100 flex items-center gap-1.5 leading-none">
-            Estudos <span class="text-emerald-400">IF</span>
-          </h1>
-          <p class="text-xs text-slate-400 font-medium">IFSC • Câmpus Garopaba</p>
+          <div class="flex items-center gap-1.5 leading-none">
+            <span class="text-base md:text-lg font-black font-heading text-slate-100">IFSC</span>
+            <span class="text-emerald-400 font-bold">•</span>
+            <span class="text-base md:text-lg font-bold font-heading text-emerald-400">Estudos IF</span>
+          </div>
+          <p class="text-[11px] text-slate-400 font-medium">Câmpus Garopaba • Preparação Aberta</p>
         </div>
       </a>
+
+      <!-- Barra de Busca Rápida (Estilo Toda Matéria) -->
+      <div class="hidden lg:flex items-center relative max-w-xs xl:max-w-sm w-full mx-2">
+        <i class="fas fa-search absolute left-3 text-slate-400 text-xs"></i>
+        <input 
+          type="text" 
+          id="global-search-input" 
+          placeholder="Buscar conteúdo do edital (ex: Independência, Regra de 3...)" 
+          class="w-full pl-8 pr-3 py-1.5 rounded-lg text-xs bg-[var(--input-bg)] border border-[var(--input-border)] text-slate-200 placeholder-slate-400 focus:outline-none focus:border-emerald-500 transition-all shadow-inner"
+        >
+        <div id="global-search-results" class="hidden absolute top-full mt-1.5 left-0 right-0 bg-[var(--modal-bg)] border border-[var(--border-color)] rounded-xl shadow-2xl p-2 z-50 max-h-80 overflow-y-auto text-xs backdrop-blur-md"></div>
+      </div>
 
       <!-- Navegação Desktop -->
       <nav class="hidden md:flex items-center gap-1">
@@ -47,24 +88,24 @@
           <i class="fas fa-home"></i> Início
         </a>
         <a href="disciplinas.html" class="nav-link">
-          <i class="fas fa-folder-tree"></i> Disciplinas & Pastas
+          <i class="fas fa-folder-tree"></i> Disciplinas
         </a>
         <a href="cursos.html" class="nav-link">
-          <i class="fas fa-university"></i> Cursos IFSC
+          <i class="fas fa-university"></i> Cursos Garopaba
         </a>
         <a href="simulado.html" class="nav-link">
-          <i class="fas fa-stopwatch"></i> Simulado Interativo
+          <i class="fas fa-stopwatch"></i> Simulado
         </a>
       </nav>
 
       <!-- Ações do Cabeçalho -->
-      <div class="flex items-center gap-2.5">
+      <div class="flex items-center gap-2">
         <button class="btn-action theme-toggle-btn" title="Alternar Modo Escuro / Claro">
           <i class="fas fa-sun theme-toggle-icon text-amber-400"></i>
         </button>
 
         <a href="simulado.html" class="btn-primary text-xs hidden sm:inline-flex">
-          <i class="fas fa-play"></i> Iniciar Simulado
+          <i class="fas fa-play"></i> Fazer Simulado
         </a>
 
         <!-- Botão Mobile Menu -->
@@ -96,55 +137,179 @@
   <!-- CONTEÚDO PRINCIPAL -->
   <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-8">
 
-    <!-- HERO BANNER COM ESTÉTICA DO PROF. ANDRÉ -->
-    <section class="glass-card p-6 md:p-10 mb-10 relative overflow-hidden bg-gradient-to-br from-emerald-950/40 via-[var(--bg-card)] to-cyan-950/20">
+    <!-- HERO EDITORIAL (TODA MATÉRIA + IFSC + ANDRÉ) -->
+    <section class="glass-card p-6 md:p-10 mb-10 relative overflow-hidden bg-gradient-to-br from-emerald-950/30 via-[var(--bg-card)] to-cyan-950/20 border-emerald-500/30">
       <div class="relative z-10 max-w-4xl">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 mb-4">
-          <i class="fas fa-sparkles"></i> Projeto Integrador I • Técnico em Informática 2026/2
+          <i class="fas fa-graduation-cap"></i> Preparação para o Ingresso no IFSC • Câmpus Garopaba
         </div>
 
-        <h2 class="text-3xl md:text-5xl font-black font-heading text-slate-100 mb-4 leading-tight">
-          Apoio Pedagógico e Acesso Aberto ao <span class="text-emerald-400">IFSC</span>
+        <!-- Headline Estilo Toda Matéria: Direto ao Ponto -->
+        <h2 class="text-3xl md:text-5xl font-black font-heading text-slate-100 mb-3 leading-tight">
+          O que você quer estudar hoje para entrar no <span class="text-emerald-400">IFSC</span>?
         </h2>
 
         <p class="text-base md:text-lg text-slate-300 leading-relaxed font-light mb-6">
-          O <strong>Estudos IF</strong> é um projeto educacional voltado para estudantes de escolas públicas que buscam ingressar nos cursos técnicos e superiores do <strong>Instituto Federal de Santa Catarina (IFSC)</strong>. Uma alternativa prática, moderna e sem necessidade de login para nivelar seus conhecimentos em relação aos editais de ingresso.
+          O <strong>Estudos IF</strong> é uma plataforma didática gratuita criada por alunas do Câmpus Garopaba para apoiar estudantes de escolas públicas na preparação para os processos seletivos do IFSC. Acesse materiais completos por disciplina, cronologias, exercícios resolvidos e simulados cronometrados — <strong>sem exigência de cadastro ou login</strong>.
         </p>
+
+        <!-- Pílulas de Tópicos Mais Buscados (Estilo Toda Matéria) -->
+        <div class="mb-6 flex flex-wrap items-center gap-2 text-xs">
+          <span class="text-slate-400 font-semibold"><i class="fas fa-fire text-amber-400 mr-1"></i>Mais Buscados:</span>
+          <a href="disciplinas.html?disc=historia&topico=0" class="sumario-pill">Independência do Brasil</a>
+          <a href="disciplinas.html?disc=matematica&topico=0" class="sumario-pill">Regra de Três</a>
+          <a href="disciplinas.html?disc=portugues&topico=1" class="sumario-pill">Concordância Verbal</a>
+          <a href="disciplinas.html?disc=ciencias&topico=0" class="sumario-pill">Citologia Celular</a>
+          <a href="disciplinas.html?disc=geografia&topico=1" class="sumario-pill">Biomas Brasileiros</a>
+        </div>
 
         <div class="flex flex-wrap items-center gap-3 pt-2">
           <a href="disciplinas.html" class="btn-primary">
-            <i class="fas fa-folder-open"></i> Explorar Conteúdos por Disciplina
+            <i class="fas fa-book-open"></i> Explorar Matérias & Conteúdos
           </a>
           <a href="simulado.html" class="btn-secondary">
-            <i class="fas fa-check-circle"></i> Fazer Simulado com Gabarito Lúdico
+            <i class="fas fa-stopwatch"></i> Iniciar Simulado com Gabarito
           </a>
           <a href="cursos.html" class="btn-action">
-            <i class="fas fa-search"></i> Conhecer Cursos em Garopaba
+            <i class="fas fa-university"></i> Ver Cursos em Garopaba
           </a>
         </div>
 
-        <!-- Badges das Autoras e Instituição -->
+        <!-- Badges Institucionais e Créditos das Autoras -->
         <div class="mt-8 pt-6 border-t border-dashed border-[var(--border-color)] flex flex-wrap items-center gap-6 text-xs text-slate-400">
           <div class="flex items-center gap-2.5">
             <div class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
-              <i class="fas fa-user-graduate text-xs"></i>
+              <i class="fas fa-user-edit text-xs"></i>
             </div>
-            <span>Elaboração: <strong class="text-slate-200">Vitória Valentina Ortiz</strong> e <strong class="text-slate-200">Brenda Luizy Carneiro</strong></span>
+            <span>Elaborado por: <strong class="text-slate-200">Vitória Ortiz</strong> & <strong class="text-slate-200">Brenda Carneiro</strong></span>
           </div>
 
           <div class="flex items-center gap-2.5">
             <div class="w-7 h-7 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold">
-              <i class="fas fa-award text-xs"></i>
+              <i class="fas fa-check-double text-xs"></i>
             </div>
-            <span>Orientação e Validação: <strong class="text-slate-200">Docentes do IFSC Câmpus Garopaba</strong></span>
+            <span>Validação: <strong class="text-slate-200">Professores do IFSC Câmpus Garopaba</strong></span>
           </div>
 
           <div class="flex items-center gap-2.5">
-            <div class="w-7 h-7 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold">
+            <div class="w-7 h-7 rounded-full bg-red-500/20 text-red-400 flex items-center justify-center font-bold">
               <i class="fas fa-lock-open text-xs"></i>
             </div>
-            <span>Acesso: <strong class="text-emerald-400">100% Aberto e Sem Cadastro</strong></span>
+            <span>Acesso: <strong class="text-emerald-400">100% Livre e Gratuito</strong></span>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TODA MATÉRIA: GRID DE DISCIPLINAS COM CORES EDITORIAIS -->
+    <section class="mb-12">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <span class="text-xs uppercase tracking-wider font-bold text-emerald-400">Currículo Oficial de Ingresso</span>
+          <h3 class="text-2xl font-bold font-heading text-slate-100 flex items-center gap-2">
+            <i class="fas fa-layer-group text-cyan-400"></i> Disciplinas do Processo Seletivo
+          </h3>
+          <p class="text-xs md:text-sm text-slate-400">Navegue pelas 5 matérias exigidas nos editais de cursos técnicos e superiores do IFSC.</p>
+        </div>
+        <a href="disciplinas.html" class="btn-action text-xs hidden sm:inline-flex">
+          Abrir Fichário Completo <i class="fas fa-arrow-right ml-1"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+        <!-- Card História (Âmbar Toda Matéria) -->
+        <div class="glass-card p-5 flex flex-col justify-between group border-amber-500/30 hover:border-amber-400 transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="badge-disc badge-disc-historia"><i class="fas fa-landmark"></i> História</span>
+              <span class="text-xs font-mono text-slate-400">3 Tópicos</span>
+            </div>
+            <h4 class="text-base font-bold text-slate-100 mb-2">História do Brasil & Cidadania</h4>
+            <ul class="text-xs text-slate-400 space-y-1.5 mb-4 list-disc pl-4">
+              <li>Independência do Brasil (1822)</li>
+              <li>A Era Vargas e a CLT (1930-45)</li>
+              <li>Ditadura Militar e Diretas Já</li>
+            </ul>
+          </div>
+          <a href="disciplinas.html?disc=historia" class="btn-action text-xs justify-center hover:bg-amber-600 hover:text-white">
+            Estudar História <i class="fas fa-chevron-right ml-1 text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Card Português (Azul/Ciano Toda Matéria) -->
+        <div class="glass-card p-5 flex flex-col justify-between group border-cyan-500/30 hover:border-cyan-400 transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="badge-disc badge-disc-portugues"><i class="fas fa-book-open"></i> Português</span>
+              <span class="text-xs font-mono text-slate-400">3 Tópicos</span>
+            </div>
+            <h4 class="text-base font-bold text-slate-100 mb-2">Língua Portuguesa & Leitura</h4>
+            <ul class="text-xs text-slate-400 space-y-1.5 mb-4 list-disc pl-4">
+              <li>Interpretação e Inferência</li>
+              <li>Concordância Verbal e Nominal</li>
+              <li>Sintaxe e Classes de Palavras</li>
+            </ul>
+          </div>
+          <a href="disciplinas.html?disc=portugues" class="btn-action text-xs justify-center hover:bg-sky-600 hover:text-white">
+            Estudar Português <i class="fas fa-chevron-right ml-1 text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Card Matemática (Roxo Toda Matéria) -->
+        <div class="glass-card p-5 flex flex-col justify-between group border-purple-500/30 hover:border-purple-400 transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="badge-disc badge-disc-matematica"><i class="fas fa-calculator"></i> Matemática</span>
+              <span class="text-xs font-mono text-slate-400">3 Tópicos</span>
+            </div>
+            <h4 class="text-base font-bold text-slate-100 mb-2">Matemática & Raciocínio</h4>
+            <ul class="text-xs text-slate-400 space-y-1.5 mb-4 list-disc pl-4">
+              <li>Razão, Proporção e Regra de Três</li>
+              <li>Equações de 1º e 2º Grau (Bhaskara)</li>
+              <li>Geometria: Áreas e Pitágoras</li>
+            </ul>
+          </div>
+          <a href="disciplinas.html?disc=matematica" class="btn-action text-xs justify-center hover:bg-purple-600 hover:text-white">
+            Estudar Matemática <i class="fas fa-chevron-right ml-1 text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Card Ciências (Verde Esmeralda IFSC/Toda Matéria) -->
+        <div class="glass-card p-5 flex flex-col justify-between group border-emerald-500/30 hover:border-emerald-400 transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="badge-disc badge-disc-ciencias"><i class="fas fa-dna"></i> Ciências</span>
+              <span class="text-xs font-mono text-slate-400">3 Tópicos</span>
+            </div>
+            <h4 class="text-base font-bold text-slate-100 mb-2">Ciências da Natureza</h4>
+            <ul class="text-xs text-slate-400 space-y-1.5 mb-4 list-disc pl-4">
+              <li>Citologia e Organelas Celulares</li>
+              <li>Sistemas do Corpo e Hematose</li>
+              <li>Ecologia e Cadeias Alimentares</li>
+            </ul>
+          </div>
+          <a href="disciplinas.html?disc=ciencias" class="btn-action text-xs justify-center hover:bg-emerald-600 hover:text-white">
+            Estudar Ciências <i class="fas fa-chevron-right ml-1 text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- Card Geografia (Teal Toda Matéria) -->
+        <div class="glass-card p-5 flex flex-col justify-between group border-teal-500/30 hover:border-teal-400 transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="badge-disc badge-disc-geografia"><i class="fas fa-earth-americas"></i> Geografia</span>
+              <span class="text-xs font-mono text-slate-400">3 Tópicos</span>
+            </div>
+            <h4 class="text-base font-bold text-slate-100 mb-2">Geografia do Brasil & Espaço</h4>
+            <ul class="text-xs text-slate-400 space-y-1.5 mb-4 list-disc pl-4">
+              <li>Macrorregiões do IBGE e Geiger</li>
+              <li>Climas e Biomas Brasileiros</li>
+              <li>Urbanização e Conurbação</li>
+            </ul>
+          </div>
+          <a href="disciplinas.html?disc=geografia" class="btn-action text-xs justify-center hover:bg-teal-600 hover:text-white">
+            Estudar Geografia <i class="fas fa-chevron-right ml-1 text-[10px]"></i>
+          </a>
         </div>
       </div>
     </section>
@@ -156,7 +321,7 @@
           <h3 class="text-2xl font-bold font-heading text-slate-100 flex items-center gap-2">
             <i class="fas fa-cubes text-emerald-400"></i> Pilares do Projeto Educacional
           </h3>
-          <p class="text-sm text-slate-400">Desenvolvido com foco na simplicidade, rigor curricular e autonomia de aprendizagem.</p>
+          <p class="text-xs md:text-sm text-slate-400">Estruturado para democratizar o acesso e oferecer uma preparação sólida para o processo seletivo.</p>
         </div>
       </div>
 
@@ -168,18 +333,18 @@
           </div>
           <h4 class="text-base font-bold text-slate-100 mb-1.5">Acesso Sem Barreiras</h4>
           <p class="text-xs text-slate-400 leading-relaxed">
-            Nenhum dado pessoal ou senha é exigido. Qualquer estudante de escola pública pode acessar imediatamente todos os materiais didáticos.
+            Sem cadastro ou senhas. Estudantes de escolas públicas acessam instantaneamente todo o acervo didático.
           </p>
         </div>
 
         <!-- Pilar 2 -->
         <div class="glass-card p-5 relative overflow-hidden">
           <div class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-lg mb-3">
-            <i class="fas fa-folder-tree"></i>
+            <i class="fas fa-book-reader"></i>
           </div>
-          <h4 class="text-base font-bold text-slate-100 mb-1.5">Organização por Pastas</h4>
+          <h4 class="text-base font-bold text-slate-100 mb-1.5">Didática Toda Matéria</h4>
           <p class="text-xs text-slate-400 leading-relaxed">
-            Estrutura em pastas/fichário lateral para Português, Matemática, Ciências, História e Geografia com resumos e cronologias ricas.
+            Estrutura com introdução, sumário rápido, destaques com "Você Sabia?", dicas de prova e gabaritos comentados.
           </p>
         </div>
 
@@ -190,7 +355,7 @@
           </div>
           <h4 class="text-base font-bold text-slate-100 mb-1.5">Simulado Randomizado</h4>
           <p class="text-xs text-slate-400 leading-relaxed">
-            Geração dinâmica de exames simulados com questões sorteadas, cronômetro de prova, gráficos animados e chuva de confetes.
+            Sorteio dinâmico das questões dos editais, cronômetro de exame, Anime.js e chuva comemorativa de confetes.
           </p>
         </div>
 
@@ -199,103 +364,23 @@
           <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-lg mb-3">
             <i class="fas fa-university"></i>
           </div>
-          <h4 class="text-base font-bold text-slate-100 mb-1.5">Espelho IFSC Garopaba</h4>
+          <h4 class="text-base font-bold text-slate-100 mb-1.5">Conexão IFSC Garopaba</h4>
           <p class="text-xs text-slate-400 leading-relaxed">
-            Painel completo com os cursos técnicos, graduação e qualificações do câmpus, com requisitos, duração e mercado de trabalho.
+            Espelho atualizado com os cursos técnicos integrados, subsequentes, concomitantes e graduação superior.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- NAVEGAÇÃO RÁPIDA PELAS 5 DISCIPLINAS -->
-    <section class="mb-12">
-      <div class="flex items-center justify-between mb-6">
-        <div>
-          <h3 class="text-2xl font-bold font-heading text-slate-100 flex items-center gap-2">
-            <i class="fas fa-book-bookmark text-cyan-400"></i> Disciplinas do Processo Seletivo
-          </h3>
-          <p class="text-sm text-slate-400">Escolha uma matéria para abrir o fichário de tópicos com teoria completa, timelines e quizzes.</p>
+    <!-- SEÇÃO CONEXÃO IFSC CÂMPUS GAROPABA (ESTILO OFICIAL IFSC) -->
+    <section class="glass-card p-6 md:p-8 bg-gradient-to-r from-emerald-950/35 via-[var(--bg-card)] to-black/40 border border-emerald-500/35 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-2 max-w-2xl">
+        <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded text-xs font-bold bg-emerald-500/15 border border-emerald-500/30 text-emerald-400">
+          <i class="fas fa-map-pin"></i> Garopaba • Santa Catarina
         </div>
-        <a href="disciplinas.html" class="btn-action text-xs hidden sm:inline-flex">
-          Ver Todas as Pastas <i class="fas fa-arrow-right ml-1"></i>
-        </a>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-        <!-- Card História -->
-        <a href="disciplinas.html?disc=historia" class="glass-card p-5 text-decoration-none group hover:border-amber-400/50">
-          <div class="w-12 h-12 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
-            <i class="fas fa-landmark"></i>
-          </div>
-          <h4 class="text-lg font-bold text-slate-100 group-hover:text-amber-400 transition-colors mb-1">História</h4>
-          <p class="text-xs text-slate-400 mb-3">Independência do Brasil, Era Vargas e Ditadura Militar.</p>
-          <div class="flex items-center justify-between text-xs font-mono text-slate-500 pt-3 border-t border-[var(--border-color)]">
-            <span>3 Tópicos</span>
-            <span class="text-amber-400 group-hover:translate-x-1 transition-transform">Abrir <i class="fas fa-chevron-right text-[10px]"></i></span>
-          </div>
-        </a>
-
-        <!-- Card Português -->
-        <a href="disciplinas.html?disc=portugues" class="glass-card p-5 text-decoration-none group hover:border-cyan-400/50">
-          <div class="w-12 h-12 rounded-xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
-            <i class="fas fa-book-open"></i>
-          </div>
-          <h4 class="text-lg font-bold text-slate-100 group-hover:text-cyan-400 transition-colors mb-1">Português</h4>
-          <p class="text-xs text-slate-400 mb-3">Interpretação de texto, concordância e sintaxe da oração.</p>
-          <div class="flex items-center justify-between text-xs font-mono text-slate-500 pt-3 border-t border-[var(--border-color)]">
-            <span>3 Tópicos</span>
-            <span class="text-cyan-400 group-hover:translate-x-1 transition-transform">Abrir <i class="fas fa-chevron-right text-[10px]"></i></span>
-          </div>
-        </a>
-
-        <!-- Card Matemática -->
-        <a href="disciplinas.html?disc=matematica" class="glass-card p-5 text-decoration-none group hover:border-purple-400/50">
-          <div class="w-12 h-12 rounded-xl bg-purple-500/15 text-purple-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
-            <i class="fas fa-calculator"></i>
-          </div>
-          <h4 class="text-lg font-bold text-slate-100 group-hover:text-purple-400 transition-colors mb-1">Matemática</h4>
-          <p class="text-xs text-slate-400 mb-3">Regra de três, equações do 2º grau e geometria plana.</p>
-          <div class="flex items-center justify-between text-xs font-mono text-slate-500 pt-3 border-t border-[var(--border-color)]">
-            <span>3 Tópicos</span>
-            <span class="text-purple-400 group-hover:translate-x-1 transition-transform">Abrir <i class="fas fa-chevron-right text-[10px]"></i></span>
-          </div>
-        </a>
-
-        <!-- Card Ciências -->
-        <a href="disciplinas.html?disc=ciencias" class="glass-card p-5 text-decoration-none group hover:border-emerald-400/50">
-          <div class="w-12 h-12 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
-            <i class="fas fa-dna"></i>
-          </div>
-          <h4 class="text-lg font-bold text-slate-100 group-hover:text-emerald-400 transition-colors mb-1">Ciências</h4>
-          <p class="text-xs text-slate-400 mb-3">Citologia celular, corpo humano e ecologia com sustentabilidade.</p>
-          <div class="flex items-center justify-between text-xs font-mono text-slate-500 pt-3 border-t border-[var(--border-color)]">
-            <span>3 Tópicos</span>
-            <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">Abrir <i class="fas fa-chevron-right text-[10px]"></i></span>
-          </div>
-        </a>
-
-        <!-- Card Geografia -->
-        <a href="disciplinas.html?disc=geografia" class="glass-card p-5 text-decoration-none group hover:border-blue-400/50">
-          <div class="w-12 h-12 rounded-xl bg-blue-500/15 text-blue-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
-            <i class="fas fa-earth-americas"></i>
-          </div>
-          <h4 class="text-lg font-bold text-slate-100 group-hover:text-blue-400 transition-colors mb-1">Geografia</h4>
-          <p class="text-xs text-slate-400 mb-3">Regiões brasileiras, biomas e processo de urbanização.</p>
-          <div class="flex items-center justify-between text-xs font-mono text-slate-500 pt-3 border-t border-[var(--border-color)]">
-            <span>3 Tópicos</span>
-            <span class="text-blue-400 group-hover:translate-x-1 transition-transform">Abrir <i class="fas fa-chevron-right text-[10px]"></i></span>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- SEÇÃO CONEXÃO IFSC CÂMPUS GAROPABA -->
-    <section class="glass-card p-6 md:p-8 bg-gradient-to-r from-emerald-950/30 to-black/40 border border-emerald-500/30 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
-      <div class="space-y-2">
-        <span class="text-xs uppercase tracking-wider font-bold text-emerald-400">Educação Pública e de Excelência</span>
-        <h3 class="text-2xl font-bold font-heading text-slate-100">Pronto para ingressar no IFSC Câmpus Garopaba?</h3>
-        <p class="text-sm text-slate-300 max-w-2xl leading-relaxed">
-          Descubra todos os cursos técnicos integrados (Informática, Administração, Lazer), concomitantes, subsequentes e de graduação tecnológica ofertados na unidade de Garopaba, com cronogramas e editais oficiais.
+        <h3 class="text-2xl font-bold font-heading text-slate-100">Cursos Gratuitos e Públicos no IFSC Garopaba</h3>
+        <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
+          Conheça as modalidades ofertadas no câmpus: <strong>Técnico em Informática</strong>, <strong>Administração</strong>, <strong>Lazer</strong>, <strong>Biotecnologia</strong>, <strong>Guia de Turismo</strong> e a graduação em <strong>Sistemas para a Internet (TSI)</strong>. Acompanhe os editais e períodos de inscrição.
         </p>
       </div>
       <div class="flex-shrink-0 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
@@ -310,16 +395,25 @@
 
   </main>
 
-  <!-- RODAPÉ GLOBAL -->
-  <footer class="mt-16 border-t border-[var(--border-color)] bg-[var(--header-bg)] py-8 px-4 text-xs text-slate-400">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold">
-          IF
+  <!-- RODAPÉ INSTITUCIONAL IFSC -->
+  <footer class="mt-16 border-t border-[var(--border-color)] bg-[var(--header-bg)] py-10 px-4 text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3.5">
+        <div class="ifsc-brand-symbol">
+          <div class="ifsc-sq red-head"></div>
+          <div class="ifsc-sq"></div>
+          <div class="ifsc-sq"></div>
+          <div class="ifsc-sq"></div>
+          <div class="ifsc-sq"></div>
+          <div class="ifsc-sq"></div>
+          <div class="ifsc-sq"></div>
+          <div class="ifsc-sq"></div>
+          <div class="ifsc-sq"></div>
         </div>
         <div>
-          <div class="text-slate-200 font-bold">Estudos IF • Projeto Integrador I</div>
-          <div>IFSC — Instituto Federal de Santa Catarina (Câmpus Garopaba)</div>
+          <div class="text-slate-200 font-bold text-sm">Estudos IF • Projeto Integrador I</div>
+          <div>IFSC — Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina</div>
+          <div class="text-slate-500 text-[11px]">Câmpus Garopaba • Rua Maria Aparecida Barbosa, 153 — Campo Duna</div>
         </div>
       </div>
 
@@ -331,14 +425,14 @@
       </div>
 
       <div class="text-center md:text-right">
-        <div>Autores: <strong>Vitória V. S. Ortiz</strong> & <strong>Brenda L. V. Carneiro</strong></div>
-        <div class="text-slate-500">Desenvolvido com HTML, CSS, JavaScript & Anime.js</div>
+        <div>Autores: <strong>Vitória Valentina da Silva Ortiz</strong> & <strong>Brenda Luizy de Vargas Carneiro</strong></div>
+        <div class="text-slate-500">HTML5 • CSS3 • JavaScript • Anime.js • Identidade IFSC</div>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts Globais -->
+  <!-- Scripts -->
+  <script src="js/conteudos-data.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
-

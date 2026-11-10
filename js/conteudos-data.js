@@ -11,12 +11,9 @@ const CONTEUDOS_DATA = {
     cor: "var(--accent-amber)",
     topicos: [
       {
-        id: "hist-independencia",
-        disciplina: "historia",
-        titulo: "Independência do Brasil (1822)",
-        subtitulo: "Do Período Joanino à Ruptura com as Cortes de Lisboa e o 7 de Setembro",
-        tempoLeitura: "14 min de estudo",
-        resumo: "A Independência do Brasil foi o processo histórico de separação política entre o Reino do Brasil e o Reino de Portugal, culminando na proclamação por Dom Pedro I em 7 de setembro de 1822.",
+        
+        dicaIFSC: "O IFSC costuma cobrar a comparação entre a independência brasileira e a das colônias espanholas: o Brasil manteve a monarquia, a unidade territorial e a escravidão, enquanto a América hispânica se fragmentou em várias repúblicas.",
+        voceSabia: "A declaração formal de independência foi assinada primeiro pela Imperatriz Maria Leopoldina no Rio de Janeiro em 2 de setembro de 1822, cinco dias antes do Grito do Ipiranga!",
         contexto: "O processo de emancipação política do Brasil começou a se desenhar de forma decisiva em 1808, com a transferência da família real portuguesa para o Rio de Janeiro, fugindo das tropas napoleônicas. A abertura dos portos às nações amigas e a elevação do Brasil a Reino Unido de Portugal, Brasil e Algarves em 1815 alteraram o estatuto colonial. Com a Revolução Liberal do Porto em 1820, as Cortes portuguesas exigiram o retorno de Dom João VI e a recolonização do território brasileiro, provocando forte resistência das elites agrárias brasileiras reunidas em torno do príncipe regente Dom Pedro.",
         topicosChave: [
           {
@@ -94,12 +91,9 @@ const CONTEUDOS_DATA = {
         ]
       },
       {
-        id: "hist-vargas",
-        disciplina: "historia",
-        titulo: "A Era Vargas (1930 – 1945)",
-        subtitulo: "A Queda da República Velha, Modernização Industrial, Legislação Trabalhista e o Estado Novo",
-        tempoLeitura: "16 min de estudo",
-        resumo: "Período de 15 anos ininterruptos em que Getúlio Vargas presidiu o Brasil, transformando a economia agroexportadora em uma sociedade urbano-industrial com forte intervenção estatal.",
+        
+        dicaIFSC: "Atenção às fases da Era Vargas: o Governo Provisório (1930-1934), a Constituição de 1934 (voto feminino e secreto) e o Estado Novo autoritário (1937-1945 com a criação da CLT e do DIP).",
+        voceSabia: "O Plano Cohen, usado por Vargas para justificar o golpe de 1937, foi uma farsa redigida por um capitão integralista simulando uma invasão comunista que nunca existiu.",
         contexto: "A crise da bolsa de Nova York em 1929 atingiu em cheio a cafeicultura paulista, base política da República Velha (República do Café com Leite). O rompimento da aliança entre São Paulo e Minas Gerais levou à formação da Aliança Liberal (RS, MG e PB), lançando Getúlio Vargas à presidência. Após a derrota eleitoral e o assassinato de João Pessoa, a Revolução de 1930 depôs Washington Luís e colocou Vargas no poder, iniciando uma fase de profundas transformações sociopolíticas no país.",
         topicosChave: [
           {
@@ -177,12 +171,9 @@ const CONTEUDOS_DATA = {
         ]
       },
       {
-        id: "hist-ditadura",
-        disciplina: "historia",
-        titulo: "A Ditadura Militar no Brasil (1964 – 1985)",
-        subtitulo: "O Golpe de 64, Atos Institucionais, Resistência e o Movimento das Diretas Já",
-        tempoLeitura: "15 min de estudo",
-        resumo: "Regime autoritário instaurado em 31 de março de 1964 com a deposição do presidente João Goulart, estendendo-se por 21 anos marcados pela supressão de direitos políticos, censura e posterior redemocratização.",
+        
+        dicaIFSC: "O AI-5 (1968) é o tema mais cobrado sobre o regime militar: lembre-se da suspensão do habeas corpus, fechamento do Congresso e censura prévia aos meios de comunicação.",
+        voceSabia: "A canção Cálice, de Chico Buarque e Gilberto Gil, utilizava o trocadilho sonoro entre a palavra cálice e o verbo cale-se para protestar contra a censura sem ser barrada de imediato.",
         contexto: "Em meio à Guerra Fria e ao clima de radicalização política nos anos 1960, as Reformas de Base propostas pelo presidente João Goulart (Jango) geraram forte oposição de setores conservadores, empresariais, da grande imprensa e da cúpula militar com apoio dos EUA. O golpe militar de 31 de março de 1964 derrubou Jango sob o pretexto de combater a corrupção e a ameaça comunista, inaugurando sucessivas gestões de generais-presidentes.",
         topicosChave: [
           {
@@ -268,12 +259,9 @@ const CONTEUDOS_DATA = {
     cor: "var(--accent-cyan)",
     topicos: [
       {
-        id: "port-interpretacao",
-        disciplina: "portugues",
-        titulo: "Interpretação e Compreensão Textual",
-        subtitulo: "Diferenciação Crítica, Gêneros Textuais, Níveis de Inferência e Figuras de Linguagem",
-        tempoLeitura: "13 min de estudo",
-        resumo: "A interpretação de textos é a competência de atribuir sentido a uma mensagem, identificando a tese central, as estratégias argumentativas, os implícitos e as relações de coerência e coesão.",
+        
+        dicaIFSC: "Em interpretação de texto, desconfie de alternativas que utilizam termos radicais como sempre, nunca, todos ou exclusivamente. Na maioria dos casos, elas extrapolam o que o autor escreveu.",
+        voceSabia: "A palavra conotação vem do latim e significa co-notar, ou seja, atribuir um sentido secundário, poético ou afetivo além da definição dicionarizada estrita da palavra.",
         contexto: "Nas provas de seleção dos Institutos Federais (IFSC), mais de 50% das questões de Língua Portuguesa envolvem a leitura atenta de crônicas, reportagens, poemas e tirinhas. Saber distinguir entre *compreensão* (o que está explícito na superfície do texto) e *interpretação* (o que se deduz logicamente a partir do texto e do conhecimento de mundo) é o diferencial para evitar respostas precipitadas e pegadinhas comuns.",
         topicosChave: [
           {
@@ -350,12 +338,9 @@ const CONTEUDOS_DATA = {
         ]
       },
       {
-        id: "port-concordancia",
-        disciplina: "portugues",
-        titulo: "Concordância Verbal e Nominal",
-        subtitulo: "Regras Gerais, Casos Especiais com Sujeito Composto, Partícula 'SE' e Erros Comuns",
-        tempoLeitura: "15 min de estudo",
-        resumo: "A concordância é o princípio sintático pelo qual o verbo se flexiona de acordo com o sujeito (concordância verbal) e o adjetivo/artigo concorda em gênero e número com o substantivo (concordância nominal).",
+        
+        dicaIFSC: "O verbo haver no sentido de existir ou indicando tempo transcorrido é impessoal e NUNCA vai para o plural no exame do IFSC: Havia muitas pessoas e Faz cinco anos.",
+        voceSabia: "A palavra menos é uma classe gramatical invariável: a forma menas não existe na norma-padrão da Língua Portuguesa em nenhuma circunstância.",
         contexto: "O domínio da concordância padrão é uma das cobranças mais tradicionais em provas de língua portuguesa de nível fundamental e médio. Questões elaboradas pelos Institutos Federais costumam explorar casos de verbos impessoais (como 'haver' e 'fazer'), concordância com expressões partitivas e a dupla função da partícula 'se' (como pronome apassivador ou índice de indeterminação do sujeito).",
         topicosChave: [
           {
@@ -432,12 +417,9 @@ const CONTEUDOS_DATA = {
         ]
       },
       {
-        id: "port-classes-sintaxe",
-        disciplina: "portugues",
-        titulo: "Classes de Palavras e Sintaxe Básica",
-        subtitulo: "Morfologia dos Substantivos, Verbos e Pronomes; Transitividade Verbal e Termos Essenciais da Oração",
-        tempoLeitura: "14 min de estudo",
-        resumo: "Compreensão da morfossintaxe: a classificação das palavras quanto à sua forma/função (morfologia) e o papel que desempenham na estrutura da oração (sintaxe).",
+        
+        dicaIFSC: "Regra de ouro de pontuação: jamais separe por vírgula o sujeito de seu verbo, nem o verbo de seus complementos diretos ou indiretos!",
+        voceSabia: "O pronome onde só pode ser empregado para retomar lugares físicos e espaciais concretos. Para situações, sentimentos ou debates, utilize em que ou no qual.",
         contexto: "Na Língua Portuguesa existem 10 classes de palavras, sendo 6 variáveis (substantivo, adjetivo, artigo, numeral, pronome, verbo) e 4 invariáveis (advérbio, preposição, conjunção, interjeição). Entender a função morfológica é a base para dominar a sintaxe da oração: identificar o sujeito, o predicado, a transitividade do verbo (direto, indireto ou intransitivo) e seus complementos (objetos direto e indireto).",
         topicosChave: [
           {
@@ -522,12 +504,9 @@ const CONTEUDOS_DATA = {
     cor: "var(--accent-purple)",
     topicos: [
       {
-        id: "mat-razao-proporcao",
-        disciplina: "matematica",
-        titulo: "Razão, Proporção e Regra de Três",
-        subtitulo: "Grandezas Diretamente e Inversamente Proporcionais, Escala e Regra de Três Composta",
-        tempoLeitura: "15 min de estudo",
-        resumo: "A proporcionalidade é a relação matemática fundamental que compara duas grandezas, permitindo resolver problemas do cotidiano como velocidade, densidade, consumo de combustível e divisão financeira.",
+        
+        dicaIFSC: "Antes de multiplicar em cruz na regra de três, analise se as grandezas são diretas ou inversas: mais operários realizam a obra em MENOS dias (inversamente proporcional, inverte a fração!).",
+        voceSabia: "A proporção áurea (número Phi = 1,618) é uma razão geométrica fascinante observada na concha do náutilo, no girassol e na composição de obras de Leonardo da Vinci.",
         contexto: "Nas avaliações do IFSC, problemas envolvendo regra de três e proporção representam a espinha dorsal da matemática aplicada. Uma grandeza é dita diretamente proporcional quando o aumento de uma acarreta o aumento da outra na mesma razão; é inversamente proporcional quando o aumento de uma provoca a redução proporcional da outra (como o número de trabalhadores em relação ao tempo para concluir uma obra).",
         topicosChave: [
           {
@@ -604,12 +583,9 @@ const CONTEUDOS_DATA = {
         ]
       },
       {
-        id: "mat-equacoes",
-        disciplina: "matematica",
-        titulo: "Equações de 1º e 2º Grau",
-        subtitulo: "Tradução Algébrica, Fórmula de Bhaskara, Vértice da Parábola e Aplicações Práticas",
-        tempoLeitura: "16 min de estudo",
-        resumo: "As equações são sentenças matemáticas com incógnitas e sinal de igualdade. Resolver uma equação significa determinar o valor numérico que torna a igualdade verdadeira.",
+        
+        dicaIFSC: "Ao resolver Bhaskara em problemas práticos de geometria (como dimensões de terrenos), descarte soluções negativas que não façam sentido físico para comprimentos.",
+        voceSabia: "O matemático indiano Bhaskara Akaria viveu no século XII, mas a fórmula que leva seu nome no Brasil é conhecida no restante do mundo simplesmente como fórmula quadrática geral.",
         contexto: "Problemas do cotidiano frequentemente exigem transformar frases da língua portuguesa em linguagem matemática: 'o dobro de um número somado a cinco', 'o produto das idades de dois irmãos', etc. No exame do IFSC, as equações do 2º grau (ax² + bx + c = 0) são cruciais tanto na álgebra pura quanto no cálculo de áreas de terrenos e trajetórias parabólicas na física.",
         topicosChave: [
           {
@@ -686,12 +662,9 @@ const CONTEUDOS_DATA = {
         ]
       },
       {
-        id: "mat-geometria-plana",
-        disciplina: "matematica",
-        titulo: "Geometria Plana: Áreas e Perímetros",
-        subtitulo: "Triângulos, Teorema de Pitágoras, Quadriláteros Notáveis e Circunferência",
-        tempoLeitura: "15 min de estudo",
-        resumo: "A geometria plana estuda figuras bidimensionais. O perímetro corresponde ao comprimento do contorno da figura, enquanto a área mede a extensão da superfície interna ocupada.",
+        
+        dicaIFSC: "Atenção às unidades de medida! Muitas questões do IFSC fornecem um lado em centímetros e outro em metros. Converta tudo para a mesma unidade antes de calcular a área.",
+        voceSabia: "O triângulo 3-4-5 é a terno pitagórico mais famoso da história e já era usado pelos agrimensores do Antigo Egito para traçar ângulos retos perfeitos após as cheias do Rio Nilo.",
         contexto: "O cálculo de áreas e perímetros é uma das habilidades mais cobradas nos processos seletivos do IFSC, aparecendo contextualizado no planejamento de reformas, pisos cerâmicos, cercamento de terrenos e estruturas esportivas. O domínio das fórmulas de áreas e a aplicação precisa do Teorema de Pitágoras em triângulos retângulos são essenciais para uma excelente pontuação.",
         topicosChave: [
           {
@@ -776,12 +749,9 @@ const CONTEUDOS_DATA = {
     cor: "var(--accent-blue)",
     topicos: [
       {
-        id: "cien-celula",
-        disciplina: "ciencias",
-        titulo: "Citologia e Organização Celular",
-        subtitulo: "Células Procariontes e Eucariontes, Organelas Citoplasmáticas e Divisão Celular",
-        tempoLeitura: "14 min de estudo",
-        resumo: "A citologia estuda a célula como a unidade morfofisiológica básica de todos os seres vivos, suas estruturas internas especializadas e os mecanismos de reprodução celular.",
+        
+        dicaIFSC: "Bactérias são procariontes: possuem material genético disperso e ribossomos, mas NÃO possuem mitocôndrias nem carioteca delimitando o núcleo.",
+        voceSabia: "As mitocôndrias possuem seu próprio DNA circular independente, comprovando a teoria endossimbiótica de que descendem de bactérias primitivas integradas às células eucariontes.",
         contexto: "De acordo com a Teoria Celular, todos os organismos são formados por células. Saber diferenciar organismos procariontes (bactérias, sem membrana nuclear) de eucariontes (animais, plantas, fungos, dotados de núcleo delimitado pela carioteca) e compreender o papel vital de cada organela celular constitui um dos tópicos mais frequentes e decisivos nas questões de Ciências da Natureza do IFSC.",
         topicosChave: [
           {
@@ -858,12 +828,9 @@ const CONTEUDOS_DATA = {
         ]
       },
       {
-        id: "cien-corpo-humano",
-        disciplina: "ciencias",
-        titulo: "Sistemas do Corpo Humano e Homeostase",
-        subtitulo: "Integração Fisiológica dos Sistemas Circulatório, Respiratório, Digestório e Nervoso",
-        tempoLeitura: "16 min de estudo",
-        resumo: "O corpo humano é um organismo multicelular altamente coordenado, no qual diferentes sistemas de órgãos atuam em sinergia para garantir a homeostase (equilíbrio interno estável).",
+        
+        dicaIFSC: "O lado esquerdo do coração bombeia sangue arterial (oxigenado) para todo o corpo, enquanto o lado direito bombeia sangue venoso para os pulmões (pequena circulação / hematose).",
+        voceSabia: "Se todos os vasos sanguíneos de um adulto fossem enfileirados em linha reta, eles alcançariam cerca de 100.000 quilômetros, o suficiente para dar mais de duas voltas completas na Terra!",
         contexto: "O estudo do corpo humano para o processo seletivo do IFSC enfatiza a integração funcional entre os sistemas: os nutrientes absorvidos pelo sistema digestório e o oxigênio captado pelos alvéolos pulmonares são transportados pelo sangue até cada célula do corpo, enquanto os resíduos metabólicos são eliminados pelo sistema excretor, tudo coordenado pelo sistema nervoso.",
         topicosChave: [
           {
@@ -940,12 +907,9 @@ const CONTEUDOS_DATA = {
         ]
       },
       {
-        id: "cien-ecologia",
-        disciplina: "ciencias",
-        titulo: "Ecologia e Sustentabilidade",
-        subtitulo: "Níveis de Organização, Cadeias Tróficas, Relações Ecológicas e Ciclos Biogeoquímicos",
-        tempoLeitura: "15 min de estudo",
-        resumo: "A ecologia analisa as interações entre os seres vivos e o ambiente em que habitam, a transferência de matéria e energia e a conservação dos ecossistemas.",
+        
+        dicaIFSC: "O fluxo de energia em uma teia alimentar é SEMPRE unidirecional e decrescente a cada nível trófico; já os nutrientes minerais circulam ciclicamente pelos decompositores.",
+        voceSabia: "Garopaba é um dos principais refúgios da Área de Proteção Ambiental da Baleia Franca, onde mães e filhotes podem ser avistados bem perto dos costões rochosos entre julho e novembro.",
         contexto: "Em um município litorâneo com rica biodiversidade como Garopaba (com dunas, lagoas, costões rochosos e áreas de Mata Atlântica), as questões ambientais são fundamentais. Os editais do IFSC cobram com frequência o fluxo unidirecional de energia nas cadeias alimentares, o impacto da poluição e as relações ecológicas harmônicas e desarmônicas.",
         topicosChave: [
           {
@@ -1030,12 +994,9 @@ const CONTEUDOS_DATA = {
     cor: "var(--accent-cyan)",
     topicos: [
       {
-        id: "geo-regioes-brasil",
-        disciplina: "geografia",
-        titulo: "Divisão Regional do Brasil e Macrorregiões",
-        subtitulo: "Critérios do IBGE, Complexos Geoeconômicos e Diversidade Regional Brasileira",
-        tempoLeitura: "14 min de estudo",
-        resumo: "Estudo das formas de regionalização do território brasileiro, suas particularidades demográficas, econômicas e socioculturais nas cinco macrorregiões oficiais e nos três complexos geoeconômicos.",
+        
+        dicaIFSC: "Não confunda a divisão do IBGE (cinco macrorregiões respeitando divisas estaduais) com a divisão geoeconômica de Geiger (três complexos com base na dinâmica histórica e produtiva).",
+        voceSabia: "Santa Catarina possui a maior expectativa de vida ao nascer do Brasil e um dos menores índices de desigualdade social segundo os levantamentos do Censo do IBGE.",
         contexto: "O Brasil possui mais de 8,5 milhões de km² de extensão territorial continental. Para facilitar a administração pública e o planejamento estatístico, o Instituto Brasileiro de Geografia e Estatística (IBGE) dividiu o país em cinco macrorregiões (Norte, Nordeste, Centro-Oeste, Sudeste e Sul), respeitando os limites das fronteiras estaduais. Paralelamente, o geógrafo Pedro Pinchas Geiger propôs a divisão em três Complexos Geoeconômicos (Amazônia, Nordeste e Centro-Sul), com foco nos processos socioeconômicos reais.",
         topicosChave: [
           {
@@ -1112,12 +1073,9 @@ const CONTEUDOS_DATA = {
         ]
       },
       {
-        id: "geo-climas-biomas",
-        disciplina: "geografia",
-        titulo: "Climas e Biomas Brasileiros",
-        subtitulo: "Domínios Morfoclimáticos, Amazônia, Cerrado, Mata Atlântica, Caatinga, Pampa e Pantanal",
-        tempoLeitura: "15 min de estudo",
-        resumo: "Análise da diversidade ecológica brasileira, caracterizada por seis grandes biomas continentais e diferentes tipos climáticos influenciados por massas de ar e relevo.",
+        
+        dicaIFSC: "A Mata Atlântica e o Cerrado são classificados como Hotspots mundiais de biodiversidade porque possuem extrema riqueza de espécies endêmicas e perderam mais de 70% de sua área original.",
+        voceSabia: "A Caatinga é o único bioma do planeta Terra exclusivamente brasileiro: sua flora xerófila sobrevive com adaptações extraordinárias ao período de estiagem.",
         contexto: "O território brasileiro localiza-se majoritariamente na zona intertropical do globo, resultando no predomínio de climas quentes. No entanto, na Região Sul atua o clima subtropical, com chuvas bem distribuídas e as quatro estações do ano bem delineadas. Conhecer as características da vegetação nativa, o regime de chuvas e as pressões antrópicas sobre os biomas é tema cativo nos vestibulares e seleções do IFSC.",
         topicosChave: [
           {
@@ -1194,12 +1152,9 @@ const CONTEUDOS_DATA = {
         ]
       },
       {
-        id: "geo-urbanizacao",
-        disciplina: "geografia",
-        titulo: "Urbanização e Industrialização no Brasil",
-        subtitulo: "Do Êxodo Rural à Formação das Metrópoles, Segregação Socioespacial e Cidades Sustentáveis",
-        tempoLeitura: "14 min de estudo",
-        resumo: "Compreensão da rápida transição do Brasil de país rural para urbano a partir da década de 1950, impulsionada pelo avanço industrial, e os consequentes desafios socioambientais nas metrópoles.",
+        
+        dicaIFSC: "Conurbação é a fusão geográfica das manchas urbanas de duas ou mais cidades vizinhas (como Florianópolis, São José e Palhoça), gerando problemas compartilhados de transporte e infraestrutura.",
+        voceSabia: "A partir do Censo Demográfico de 1970, o Brasil tornou-se um país de maioria urbana, consolidando o rápido êxodo do campo em direção aos polos industriais.",
         contexto: "Até a primeira metade do século XX, a maioria da população brasileira vivia e trabalhava no campo. Com a industrialização promovida por Vargas e Juscelino Kubitschek, associada à modernização conservadora do campo (mecanização agrícola), milhões de trabalhadores migraram para as cidades no fenômeno do êxodo rural. Hoje, mais de 85% dos brasileiros vivem em cidades, gerando desafios graves de moradia, mobilidade e saneamento básico.",
         topicosChave: [
           {
